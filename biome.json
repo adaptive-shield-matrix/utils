@@ -1,0 +1,44 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "lineWidth": 120
+  },
+  "javascript": {
+    "formatter": {
+      "semicolons": "asNeeded"
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "suspicious": {
+        "noExplicitAny": "off"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "info"
+      },
+      "style": {
+        "noNonNullAssertion": "off",
+        "noInferrableTypes": "off",
+        "useImportType": "off",
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noUselessElse": "error"
+      }
+    }
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  }
+}

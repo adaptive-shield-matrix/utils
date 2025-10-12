@@ -1,0 +1,61 @@
+{
+  "name": "@adaptive-sm/utils",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "rm -rf ./dist && bun tsc -p ./tsconfig.lib.json",
+    "test": "bun test",
+    "test:w": "bun test --watch",
+    "generateBarrelImports": "bun ./src/generate/generateBarrelImports.ts",
+    "publish": "bash ./ops/publish.sh",
+    "update": "bun update",
+    "update:commit": "bun update && git add package.json && bun run tsc && git commit -m \"chore(deps): update dependencies\" && git push",
+    "clean": "rm -rf ./dist",
+    "reset": "rm -rf ./node_modules"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.0"
+  },
+  "peerDependencies": {
+    "@biomejs/biome": "^2.2.5",
+    "dayjs": "^1.11.18",
+    "typescript": "^5",
+    "valibot": "^1.1.0"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 120,
+    "trailingComma": "all"
+  },
+  "module": "index",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./*": "./dist/*"
+  },
+  "files": [
+    "dist"
+  ],
+  "private": false,
+  "license": "MIT",
+  "homepage": "https://github.com/adaptive-shield-matrix/utils",
+  "description": "A comprehensive collection of TypeScript utilities for arrays, URLs, random ID generation, validation, and common development tasks. Lightweight, tree-shakable, and Bun/Node.js compatible.",
+  "keywords": [
+    "typescript",
+    "utilities",
+    "utils",
+    "array",
+    "url",
+    "random",
+    "id-generation",
+    "validation",
+    "valibot",
+    "bun",
+    "nodejs",
+    "helper-functions",
+    "development-tools"
+  ],
+  "repository": {
+    "url": "git+https://github.com/adaptive-shield-matrix/utils.git"
+  }
+}

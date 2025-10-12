@@ -1,0 +1,30 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": ["es2022",],
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "noEmit": false,
+    "declaration": true,
+    "sourceMap": true,
+    "allowImportingTsExtensions":false
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "export",
+    // "src",
+    "test",
+    "docs",
+    "public",
+    "build",
+    "dist",
+    "out",
+    "data",
+    ".idea",
+    ".vscode"
+  ]
+}
