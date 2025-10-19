@@ -2,6 +2,11 @@
 
 A comprehensive collection of TypeScript utilities for arrays, URLs, random ID generation, validation, and common development tasks. Lightweight, tree-shakable, and Bun/Node.js compatible.
 
+Quick link
+
+- code - https://github.com/adaptive-shield-matrix/utils
+- npm - https://www.npmjs.com/package/@adaptive-sm/utils
+
 ## Features
 
 - **Array Utilities**: Create, filter, and manipulate arrays with ease
