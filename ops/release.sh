@@ -24,10 +24,9 @@ echo "📄 Preview of release notes:"
 echo "----------------------------------------"
 echo "$CHANGELOG_BODY"
 echo "----------------------------------------"
-echo "📦 Current version: $CURRENT_VERSION"
 
 # --- Step 2: Prompt for new version ---
-read -p "🔖 Enter new version (e.g., 0.2.1): " NEW_VERSION
+read -p "🔖 Enter new version (previous: $CURRENT_VERSION): " NEW_VERSION
 
 if [[ -z "$NEW_VERSION" ]]; then
   echo "❌ Version is required. Aborting."
@@ -66,7 +65,7 @@ TAG="v$NEW_VERSION"
 
 # --- Step 6: Git Commit and push ---
 git add "$CHANGELOG_FILE" "$PACKAGE_JSON"
-git commit -m "build(release): v$NEW_VERSION"
+git commit -m "chore(release): v$NEW_VERSION"
 git tag -a "$TAG" -m "Release v$NEW_VERSION"
 git push origin main
 git push origin --tags
