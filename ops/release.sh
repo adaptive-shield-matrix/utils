@@ -80,11 +80,6 @@ gh release create "$TAG" \
   --notes-file "$CHANGELOG_FILE" \
   --repo "$REPO_NAME"
 
-# --- Step 8: Publish to npm ---
-echo "📦 Publishing to npm..."
-#bunx npm publish --access public
-bun publish --access public
-
 echo "✅ Release v$NEW_VERSION complete!"
 echo "📄 Changelog: $CHANGELOG_FILE"
 echo "🔗 GitHub: https://github.com$(echo "$REPO_URL" | sed 's/.*github.com//')/releases/tag/$TAG"
