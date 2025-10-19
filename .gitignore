@@ -90,7 +90,6 @@ astro
 .npmrc
 
 # ai, ethereal and auto generated
-.roo/rules-code
 AGENTS.md
 
 # project specific: wrangler
