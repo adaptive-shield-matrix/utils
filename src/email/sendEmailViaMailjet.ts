@@ -1,5 +1,5 @@
 import * as v from "valibot"
-import { readEnvVariableResult } from "~utils/index"
+import { readEnvVariableResult } from "~utils/env/readEnvVariable"
 import { createError, createResult, type Result, type ResultErr } from "~utils/result/Result"
 
 export type MailjetAttachment = {

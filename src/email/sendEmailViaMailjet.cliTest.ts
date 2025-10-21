@@ -1,5 +1,5 @@
-import { jsonStringifyPretty } from "@utils/json/jsonStringifyPretty"
-import { readEnvVariableResult } from "~utils/index"
+import { readEnvVariableResult } from "~utils/env/readEnvVariable"
+import { jsonStringifyPretty } from "~utils/json/jsonStringifyPretty"
 import { sendEmailViaMailjet, type MailjetEmailProps, type MailjetEnvVariableNames } from "./sendEmailViaMailjet"
 
 async function main() {
