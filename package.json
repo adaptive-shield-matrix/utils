@@ -5,7 +5,6 @@
     "build": "rm -rf ./dist && bun tsc -p ./tsconfig.lib.json",
     "test": "bun test",
     "test:w": "bun test --watch",
-    "generateBarrelImports": "bun ./src/generate/generateBarrelImports.ts",
     "release": "bash ./ops/release.sh",
     "update": "bun update",
     "update:commit": "bun update && git add package.json && bun run tsc && git commit -m \"chore(deps): update dependencies\" && git push",
@@ -26,16 +25,7 @@
     "printWidth": 120,
     "trailingComma": "all"
   },
-  "module": "index",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    "./*": "./dist/*"
-  },
-  "files": [
-    "dist"
-  ],
   "private": false,
   "license": "MIT",
   "homepage": "https://github.com/adaptive-shield-matrix/utils",
@@ -57,5 +47,11 @@
   ],
   "repository": {
     "url": "git+https://github.com/adaptive-shield-matrix/utils.git"
-  }
+  },
+  "exports": {
+    "./*": "./dist/*"
+  },
+  "files": [
+    "dist"
+  ]
 }
