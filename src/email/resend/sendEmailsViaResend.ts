@@ -2,9 +2,9 @@ import {
   type ResendEmailProps,
   type ResendEmailSend,
   sendEmailsViaResendApi,
-} from "@utils/email/resend/sendEmailsViaResendApi"
-import { readEnvVariableResult } from "@utils/env/readEnvVariable"
-import type { Result, ResultErr } from "@utils/result/Result"
+} from "~utils/email/resend/sendEmailsViaResendApi"
+import { readEnvVariableResult } from "~utils/env/readEnvVariable"
+import type { Result, ResultErr } from "~utils/result/Result"
 
 export type ResendEnvVariableNames = {
   apiKey: string

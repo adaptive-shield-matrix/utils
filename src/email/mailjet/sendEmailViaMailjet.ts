@@ -1,5 +1,5 @@
-import { sendEmailsViaMailjet, type MailjetEnvVariableNames } from "@utils/email/mailjet/sendEmailsViaMailjet"
-import { type MailjetEmailProps, type MailjetSingleMessageResult } from "@utils/email/mailjet/sendEmailsViaMailjetApi"
+import { sendEmailsViaMailjet, type MailjetEnvVariableNames } from "~utils/email/mailjet/sendEmailsViaMailjet"
+import { type MailjetEmailProps, type MailjetSingleMessageResult } from "~utils/email/mailjet/sendEmailsViaMailjetApi"
 import { createError, createResult, type Result, type ResultErr } from "~utils/result/Result"
 
 export async function sendEmailViaMailjet(

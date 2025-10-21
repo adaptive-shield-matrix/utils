@@ -2,8 +2,8 @@ import {
   sendEmailsViaMailjetApi,
   type MailjetBulkResult,
   type MailjetEmailProps,
-  type MailjetSendProps
-} from "@utils/email/mailjet/sendEmailsViaMailjetApi"
+  type MailjetSendProps,
+} from "~utils/email/mailjet/sendEmailsViaMailjetApi"
 import { readEnvVariableResult } from "~utils/env/readEnvVariable"
 import { createResult, type Result, type ResultErr } from "~utils/result/Result"
 

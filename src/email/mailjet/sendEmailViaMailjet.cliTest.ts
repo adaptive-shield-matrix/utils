@@ -1,5 +1,5 @@
-import type { MailjetEnvVariableNames } from "@utils/email/mailjet/sendEmailsViaMailjet"
-import type { MailjetEmailProps } from "@utils/email/mailjet/sendEmailsViaMailjetApi"
+import type { MailjetEnvVariableNames } from "~utils/email/mailjet/sendEmailsViaMailjet"
+import type { MailjetEmailProps } from "~utils/email/mailjet/sendEmailsViaMailjetApi"
 import { readEnvVariableResult } from "~utils/env/readEnvVariable"
 import { jsonStringifyPretty } from "~utils/json/jsonStringifyPretty"
 import { sendEmailViaMailjet } from "./sendEmailViaMailjet"

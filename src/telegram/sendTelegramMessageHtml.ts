@@ -1,9 +1,9 @@
+import { readEnvVariableResult } from "~utils/env/readEnvVariable"
+import { type PromiseResult } from "~utils/result/Result"
 import {
   sendTelegramMessageHtmlApi,
   type TelegramMessageSendingProps,
-} from "@utils/telegram/sendTelegramMessageHtmlApi"
-import { readEnvVariableResult } from "~utils/env/readEnvVariable"
-import { type PromiseResult } from "~utils/result/Result"
+} from "~utils/telegram/sendTelegramMessageHtmlApi"
 
 export type TelegramEnvVariableNames = {
   apiToken: string

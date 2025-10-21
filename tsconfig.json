@@ -22,9 +22,6 @@
     // absolute import paths
     //
     "paths": {
-      "@utils/*": [
-        "./src/*"
-      ],
       "~utils/*": [
         "./src/*"
       ]

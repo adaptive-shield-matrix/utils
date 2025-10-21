@@ -1,9 +1,9 @@
-import { sendEmailsViaResend, type ResendEnvVariableNames } from "@utils/email/resend/sendEmailsViaResend"
+import { sendEmailsViaResend, type ResendEnvVariableNames } from "~utils/email/resend/sendEmailsViaResend"
 import {
   type ResendAddressInfo,
   type ResendEmailProps,
   type ResendEmailSend,
-} from "@utils/email/resend/sendEmailsViaResendApi"
+} from "~utils/email/resend/sendEmailsViaResendApi"
 import { type Result } from "~utils/result/Result"
 
 export async function sendSingleEmailViaResend(

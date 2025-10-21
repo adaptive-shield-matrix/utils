@@ -2,9 +2,9 @@ import {
   type ZeptomailAddress,
   type ZeptomailProps,
   sendEmailsViaZeptomailApi,
-} from "@utils/email/zeptomail/sendEmailsViaZeptomailApi"
-import { readEnvVariableResult } from "@utils/env/readEnvVariable"
-import type { Result } from "@utils/result/Result"
+} from "~utils/email/zeptomail/sendEmailsViaZeptomailApi"
+import { readEnvVariableResult } from "~utils/env/readEnvVariable"
+import type { Result } from "~utils/result/Result"
 
 export type ZeptomailEnvVariableNames = {
   apiKey: string

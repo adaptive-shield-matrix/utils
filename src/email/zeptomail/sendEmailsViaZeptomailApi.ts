@@ -1,5 +1,5 @@
-import { jsonStringifyPretty } from "@utils/json/jsonStringifyPretty"
-import { type PromiseResult, createError, createResult } from "@utils/result/Result"
+import { jsonStringifyPretty } from "~utils/json/jsonStringifyPretty"
+import { type PromiseResult, createError, createResult } from "~utils/result/Result"
 
 export const zeptosBaseApiUrl = "https://api.zeptomail.com/v1.1/email"
 

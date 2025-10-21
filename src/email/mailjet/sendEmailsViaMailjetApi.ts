@@ -1,5 +1,5 @@
-import { type Result, createError, createResult } from "@utils/result/Result"
 import * as v from "valibot"
+import { type Result, createError, createResult } from "~utils/result/Result"
 
 export type MailjetSendProps = {
   Messages: Array<MailjetEmailProps>
