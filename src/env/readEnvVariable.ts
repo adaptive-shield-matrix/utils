@@ -48,3 +48,15 @@ export function readEnvVariableResult(name: string): Result<string> {
   }
   return createError(op, "neither process.env." + name + " nor import.meta.env." + name + " matches")
 }
+
+export function readEnvVariableBackendResult(name: string): Result<string> {
+  const op = "readEnvVariableBackendResult"
+  if (typeof process !== "undefined" && process.env) {
+    const variable = process.env[name]
+    if (!variable) {
+      return createError(op, "process.env." + name + " not set or defined")
+    }
+    return createResult(variable)
+  }
+  return createError(op, "neither process.env." + name + " nor import.meta.env." + name + " matches")
+}

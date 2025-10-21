@@ -1,4 +1,5 @@
 import { formatGeneratedCodeFile } from "@utils/generate/formatGeneratedCodeFile"
+import { jsonStringifyPretty } from "@utils/json/jsonStringifyPretty"
 import fs from "fs/promises"
 import path from "path"
 
@@ -26,7 +27,8 @@ async function updatePackageSettings() {
   const pkg = JSON.parse(packageJsonContent)
   pkg.main = "./dist/index.js"
   pkg.types = "./dist/index.d.ts"
-  await fs.writeFile(packageJsonPath, JSON.stringify(pkg, null, 2) + "\n", "utf8")
+  const data = jsonStringifyPretty(pkg)
+  await fs.writeFile(packageJsonPath, data + "\n", "utf8")
   console.log("Updated package.json with main and types pointing to index.")
 }
 
