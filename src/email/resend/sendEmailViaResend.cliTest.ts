@@ -1,7 +1,7 @@
 import { nowIso } from "~utils/date/nowIso"
 import { readEnvVariableResult } from "~utils/env/readEnvVariable"
 import { jsonStringifyPretty } from "~utils/json/jsonStringifyPretty"
-import { sendEmailViaResend, type ResendEnvVariableNames } from "./sendEmailViaResend"
+import { sendEmailsViaResend, type ResendEnvVariableNames } from "./sendEmailsViaResend"
 
 sendTest()
 
@@ -18,7 +18,7 @@ async function sendTest() {
     return
   }
   const toAddress = toAddressResult.data
-  const got = await sendEmailViaResend(
+  const got = await sendEmailsViaResend(
     {
       to: [{ name: "", email: toAddress }],
       subject: "test email " + nowIso(),

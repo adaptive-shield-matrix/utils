@@ -1,13 +1,6 @@
+import { jsonStringifyPretty } from "@utils/json/jsonStringifyPretty"
+import { type Result, createError, createResult } from "@utils/result/Result"
 import * as v from "valibot"
-import { readEnvVariableResult } from "~utils/env/readEnvVariable"
-import { jsonStringifyPretty } from "~utils/json/jsonStringifyPretty"
-import { createError, createResult, type Result, type ResultErr } from "~utils/result/Result"
-
-export type ResendEnvVariableNames = {
-  apiKey: string
-  senderAddress: string
-  senderName: string
-}
 
 export type ResendAddressInfo = {
   name?: string
@@ -54,31 +47,10 @@ export type ResendEmailSend = {
   id: string
 }
 
-export async function sendEmailViaResend(
+export async function sendEmailsViaResendApi(
   props: ResendEmailProps,
-  envVariableNames: ResendEnvVariableNames,
+  apiKey: string,
 ): Promise<Result<ResendEmailSend>> {
-  const op = "sendEmailViaResend"
-  const apiKeyResult = readEnvVariableResult(envVariableNames.apiKey)
-  if (!apiKeyResult.success) return apiKeyResult as ResultErr
-  const apiKey = apiKeyResult.data
-
-  if (!props.from) {
-    const senderAddressResult = readEnvVariableResult(envVariableNames.senderAddress)
-    if (!senderAddressResult.success) return senderAddressResult as ResultErr
-    const senderAddress = senderAddressResult.data
-
-    const senderNameResult = readEnvVariableResult(envVariableNames.senderName)
-    if (!senderNameResult.success) return senderNameResult as ResultErr
-    const senderName = senderNameResult.data
-
-    props.from = { name: senderName, email: senderAddress }
-  }
-
-  return sendEmailViaResendApi(props, apiKey)
-}
-
-export async function sendEmailViaResendApi(props: ResendEmailProps, apiKey: string): Promise<Result<ResendEmailSend>> {
   const op = "sendEmailViaResendApi"
 
   // Check required fields individually
