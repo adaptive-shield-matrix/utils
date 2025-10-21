@@ -10,12 +10,12 @@ export function createResult<T>(data: T): ResultOk<T> {
   }
 }
 
+export function createError(op: string, errorMessage: string, errorData?: string | null): ResultErr {
+  return createResultError(op, errorMessage, errorData)
+}
+
 export function createResultError(op: string, errorMessage: string, errorData?: string | null): ResultErr {
   const r: ResultErr = { success: false, op, errorMessage }
   if (errorData) r.errorData = errorData
   return r
-}
-
-export function createError(op: string, errorMessage: string, errorData?: string | null): ResultErr {
-  return createResultError(op, errorMessage, errorData)
 }
