@@ -1,7 +1,7 @@
-import { formatGeneratedCodeFile } from "@utils/generate/formatGeneratedCodeFile"
-import { jsonStringifyPretty } from "@utils/json/jsonStringifyPretty"
 import fs from "fs/promises"
 import path from "path"
+import { formatGeneratedCodeFile } from "~utils/generate/formatGeneratedCodeFile"
+import { jsonStringifyPretty } from "~utils/json/jsonStringifyPretty"
 
 main().catch(console.error)
 
@@ -46,7 +46,8 @@ async function findTsFiles(dir: string, baseDir: string): Promise<string[]> {
       (entry.name.endsWith(".ts") || entry.name.endsWith(".tsx")) &&
       !entry.name.match(/\.test\./) &&
       !entry.name.startsWith("generateBarrlImports") &&
-      !entry.name.endsWith(".cli.ts")
+      !entry.name.endsWith(".cli.ts") &&
+      !entry.name.endsWith(".cliTest.ts")
     ) {
       const relPath = path.relative(baseDir, fullPath).replace(/\.(ts|tsx)$/, "")
       if (relPath) {

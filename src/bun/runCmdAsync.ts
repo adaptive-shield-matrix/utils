@@ -1,5 +1,4 @@
-import { jsonStringifyPretty } from "@utils/json/jsonStringifyPretty"
-import console from "node:console"
+import { jsonStringifyPretty } from "~utils/json/jsonStringifyPretty"
 import type { BunCmd } from "./BunCmd"
 
 export async function runCmdAsync(cmd: string[], logBunCmd: boolean = true): Promise<BunCmd> {
