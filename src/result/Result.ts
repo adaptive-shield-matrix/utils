@@ -1,5 +1,11 @@
 export type ResultOk<T> = { success: true; data: T }
-export type ResultErr = { success: false; op: string; errorMessage: string; errorData?: string | null }
+export type ResultErr = {
+  success: false
+  op: string
+  errorMessage: string
+  errorData?: string | null
+  statusCode?: number
+}
 export type Result<T> = ResultOk<T> | ResultErr
 export type PromiseResult<T> = Promise<Result<T>>
 
