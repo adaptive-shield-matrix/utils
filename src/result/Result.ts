@@ -2,6 +2,7 @@ export type ResultOk<T> = { success: true; data: T }
 export type ResultErr = {
   success: false
   op: string
+  code?: string
   errorMessage: string
   errorData?: string | null
   statusCode?: number
