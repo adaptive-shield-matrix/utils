@@ -12,7 +12,7 @@ async function sendTest() {
     senderName: "RESEND_SENDER_NAME",
   } as const satisfies ResendEnvVariableNames
 
-  const toAddressResult = readEnvVariableResult("AUTH_RESEND_E2E_TEST_TO")
+  const toAddressResult = readEnvVariableResult("EMAIL_ADDRESS_E2E_TEST")
   if (!toAddressResult.success) {
     console.error(toAddressResult)
     return
