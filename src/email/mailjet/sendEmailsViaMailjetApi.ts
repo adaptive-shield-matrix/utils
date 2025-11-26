@@ -1,4 +1,4 @@
-import * as v from "valibot"
+import * as a from "valibot"
 import { type Result, createError, createResult } from "~utils/result/Result"
 
 export type MailjetSendProps = {
@@ -88,53 +88,53 @@ export async function sendEmailsViaMailjetApi(
   const fetchText = await fetched.text()
 
   if (fetched.ok) {
-    const successParsing = v.safeParse(successSchemaString, fetchText)
+    const successParsing = a.safeParse(successSchemaString, fetchText)
     if (successParsing.success) {
       return createResult(successParsing.output)
     }
     return createResult({ Messages: [] } as MailjetBulkResult)
   }
 
-  const parsing = v.safeParse(errSchemaString, fetchText)
+  const parsing = a.safeParse(errSchemaString, fetchText)
   if (!parsing.success) {
-    return createError(op, v.summarize(parsing.issues), fetchText)
+    return createError(op, a.summarize(parsing.issues), fetchText)
   }
   return createError(op, fetched.statusText, fetchText)
 }
 
-const successMessageSchema = v.object({
-  Email: v.string(),
-  MessageUUID: v.string(),
-  MessageID: v.number(),
-  MessageHref: v.string(),
+const successMessageSchema = a.object({
+  Email: a.string(),
+  MessageUUID: a.string(),
+  MessageID: a.number(),
+  MessageHref: a.string(),
 })
 
-const successSchema = v.object({
-  Messages: v.array(
-    v.object({
-      Status: v.string(),
-      To: v.optional(v.array(successMessageSchema)),
-      Cc: v.optional(v.array(successMessageSchema)),
-      Bcc: v.optional(v.array(successMessageSchema)),
+const successSchema = a.object({
+  Messages: a.array(
+    a.object({
+      Status: a.string(),
+      To: a.optional(a.array(successMessageSchema)),
+      Cc: a.optional(a.array(successMessageSchema)),
+      Bcc: a.optional(a.array(successMessageSchema)),
     }),
   ),
 })
-const successSchemaString = v.pipe(v.string(), v.parseJson(), successSchema)
+const successSchemaString = a.pipe(a.string(), a.parseJson(), successSchema)
 
-const errMessageSchema = v.object({
-  ErrorIdentifier: v.string(),
-  ErrorCode: v.string(),
-  StatusCode: v.number(),
-  ErrorMessage: v.string(),
-  ErrorRelatedTo: v.optional(v.array(v.string())),
+const errMessageSchema = a.object({
+  ErrorIdentifier: a.string(),
+  ErrorCode: a.string(),
+  StatusCode: a.number(),
+  ErrorMessage: a.string(),
+  ErrorRelatedTo: a.optional(a.array(a.string())),
 })
 
-const errSchema = v.object({
-  Messages: v.array(
-    v.object({
-      Status: v.string(),
-      Errors: v.optional(v.array(errMessageSchema)),
+const errSchema = a.object({
+  Messages: a.array(
+    a.object({
+      Status: a.string(),
+      Errors: a.optional(a.array(errMessageSchema)),
     }),
   ),
 })
-const errSchemaString = v.pipe(v.string(), v.parseJson(), errSchema)
+const errSchemaString = a.pipe(a.string(), a.parseJson(), errSchema)

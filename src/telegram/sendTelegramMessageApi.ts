@@ -1,4 +1,4 @@
-import * as v from "valibot"
+import * as a from "valibot"
 import { type PromiseResult, createError, createResult } from "~utils/result/Result"
 import { intOrStringSchema } from "~utils/valibot/intOrStringSchema"
 
@@ -63,9 +63,9 @@ export async function sendTelegramMessageApi(props: TelegramMessageProps, apiKey
   if (fetched.ok) {
     return createResult(null)
   }
-  const parsing = v.safeParse(errSchemaFromString, fetchText)
+  const parsing = a.safeParse(errSchemaFromString, fetchText)
   if (!parsing.success) {
-    return createError(op, v.summarize(parsing.issues), fetchText)
+    return createError(op, a.summarize(parsing.issues), fetchText)
   }
   return createError(op, parsing.output.description)
 }
@@ -79,9 +79,9 @@ export async function sendTelegramMessageApi(props: TelegramMessageProps, apiKey
 //   // entities
 // })
 
-const errSchema = v.object({
-  ok: v.boolean(),
+const errSchema = a.object({
+  ok: a.boolean(),
   error_code: intOrStringSchema,
-  description: v.string(),
+  description: a.string(),
 })
-export const errSchemaFromString = v.pipe(v.string(), v.parseJson(), errSchema)
+export const errSchemaFromString = a.pipe(a.string(), a.parseJson(), errSchema)

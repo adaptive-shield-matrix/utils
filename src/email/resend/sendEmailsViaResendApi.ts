@@ -1,4 +1,4 @@
-import * as v from "valibot"
+import * as a from "valibot"
 import { jsonStringifyPretty } from "~utils/json/jsonStringifyPretty"
 import { type Result, createError, createResult } from "~utils/result/Result"
 
@@ -102,16 +102,16 @@ export async function sendEmailsViaResendApi(
   const fetchText = await fetched.text()
 
   if (fetched.ok) {
-    const successParsing = v.safeParse(successSchemaFromString, fetchText)
+    const successParsing = a.safeParse(successSchemaFromString, fetchText)
     if (successParsing.success) {
       return createResult(successParsing.output)
     }
     return createResult({ id: "unknown" } as ResendEmailSend)
   }
 
-  const parsing = v.safeParse(errSchemaFromString, fetchText)
+  const parsing = a.safeParse(errSchemaFromString, fetchText)
   if (!parsing.success) {
-    return createError(op, v.summarize(parsing.issues), fetchText)
+    return createError(op, a.summarize(parsing.issues), fetchText)
   }
 
   const error = parsing.output
@@ -127,12 +127,12 @@ function serializeAdress(recipient: ResendAddressInfo): string {
   return recipient.email
 }
 
-const successSchema = v.object({
-  id: v.string(),
+const successSchema = a.object({
+  id: a.string(),
 })
-const successSchemaFromString = v.pipe(v.string(), v.parseJson(), successSchema)
+const successSchemaFromString = a.pipe(a.string(), a.parseJson(), successSchema)
 
-const errSchema = v.object({
-  message: v.string(),
+const errSchema = a.object({
+  message: a.string(),
 })
-const errSchemaFromString = v.pipe(v.string(), v.parseJson(), errSchema)
+const errSchemaFromString = a.pipe(a.string(), a.parseJson(), errSchema)

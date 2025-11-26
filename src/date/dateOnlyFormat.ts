@@ -1,4 +1,4 @@
-import * as v from "valibot"
+import * as a from "valibot"
 
 export type DateOnlyFormat = keyof typeof dateOnlyFormat
 
@@ -12,4 +12,4 @@ export const dateOnlyFormat = {
   iso: "iso",
 } as const
 
-export const dateOnlyFormatSchema = v.enum(dateOnlyFormat)
+export const dateOnlyFormatSchema = a.enum(dateOnlyFormat)

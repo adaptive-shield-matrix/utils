@@ -1,6 +1,6 @@
 import type { ValiError } from "valibot"
-import * as v from "valibot"
+import * as a from "valibot"
 
 export function stringifyValibotErrors(e: ValiError<any>): string {
-  return v.summarize(e.issues)
+  return a.summarize(e.issues)
 }

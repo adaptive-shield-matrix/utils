@@ -1,3 +1,3 @@
-import * as v from "valibot"
+import * as a from "valibot"
 
-export const dateTimeSchema = v.pipe(v.string(), v.isoTimestamp())
+export const dateTimeSchema = a.pipe(a.string(), a.isoTimestamp())

@@ -1,9 +1,9 @@
-import * as v from "valibot"
+import * as a from "valibot"
 
-const stringToNumberSchema = v.pipe(
-  v.string(),
-  v.minLength(1),
-  v.custom((input) => !isNaN(Number(input)), "Invalid number string"),
-  v.transform((input) => Number(input)),
+const stringToNumberSchema = a.pipe(
+  a.string(),
+  a.minLength(1),
+  a.custom((input) => !isNaN(Number(input)), "Invalid number string"),
+  a.transform((input) => Number(input)),
 )
-export const numberOrStringSchema = v.union([v.number(), stringToNumberSchema])
+export const numberOrStringSchema = a.union([a.number(), stringToNumberSchema])
